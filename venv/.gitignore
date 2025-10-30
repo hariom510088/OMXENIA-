@@ -1,0 +1,4 @@
+DEBUG=False
+SECRET_KEY=your-generated-secret-key-here
+ALLOWED_HOSTS=yourusername.pythonanywhere.com,localhost,127.0.0.1
+EMAIL_HOST_PASSWORD=lfci zhmv nuis mgyg
