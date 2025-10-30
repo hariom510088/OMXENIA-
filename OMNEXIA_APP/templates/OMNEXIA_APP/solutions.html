@@ -1,0 +1,63 @@
+{% extends 'OMNEXIA_APP/base.html' %}
+
+{% block title %}Solutions - OMNEXIA{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="section-title">Our Solutions</h1>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+            <p style="font-size: 1.2rem; color: var(--text-gray);">
+                Tailored solutions for various industries, leveraging cutting-edge technology to drive innovation and growth.
+            </p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-graduation-cap fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Education</h3>
+                <p style="color: var(--text-gray);">AI-powered learning platforms, student management systems, and virtual classroom solutions.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-heartbeat fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Healthcare</h3>
+                <p style="color: var(--text-gray);">Telemedicine platforms, patient management systems, and healthcare analytics solutions.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-shopping-cart fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Retail & E-commerce</h3>
+                <p style="color: var(--text-gray);">Omnichannel retail solutions, inventory management, and personalized shopping experiences.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-industry fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Manufacturing</h3>
+                <p style="color: var(--text-gray);">IoT-enabled smart factories, supply chain optimization, and predictive maintenance.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-money-bill-wave fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Finance</h3>
+                <p style="color: var(--text-gray);">Fintech solutions, fraud detection systems, and automated trading platforms.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-truck fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Logistics</h3>
+                <p style="color: var(--text-gray);">Route optimization, fleet management, and real-time tracking solutions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom Solutions Section -->
+<section class="section" style="background: var(--dark-card);">
+    <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">Need a Custom Solution?</h2>
+            <p style="font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem;">
+                Every business is unique. We specialize in creating custom-tailored solutions that address 
+                your specific challenges and opportunities.
+            </p>
+            <a href="{% url 'contact' %}" class="cta-button">Get a Custom Quote</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

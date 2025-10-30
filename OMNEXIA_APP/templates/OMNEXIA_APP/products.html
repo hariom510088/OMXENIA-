@@ -1,0 +1,63 @@
+{% extends 'OMNEXIA_APP/base.html' %}
+
+{% block title %}Our Products - OMNEXIA{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="section-title">Our Products</h1>
+        <div class="grid-3">
+            {% for product in products %}
+            <div class="card" style="text-align: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, var(--electric-blue), var(--neon-purple)); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-cube fa-2x"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">{{ product.name }}</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1.5rem;">{{ product.description }}</p>
+                {% if product.link %}
+                <a href="{{ product.link }}" class="cta-button" style="display: inline-block;">Learn More</a>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="card" style="text-align: center; grid-column: 1 / -1;">
+                <h3>No Products Available</h3>
+                <p style="color: var(--text-gray);">We're working on exciting new products. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Coming Soon Products -->
+<section class="section" style="background: var(--dark-card);">
+    <div class="container">
+        <h2 class="section-title">Coming Soon</h2>
+        <div class="grid-3">
+            <div class="card" style="text-align: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, #666, #999); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-rocket fa-2x"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">Sutra AI</h3>
+                <p style="color: var(--text-gray);">Advanced AI platform for enterprise automation and intelligence.</p>
+                <span style="color: var(--electric-blue); font-style: italic;">Coming Soon</span>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, #666, #999); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">CyberShield</h3>
+                <p style="color: var(--text-gray);">Next-generation cybersecurity platform with AI threat detection.</p>
+                <span style="color: var(--electric-blue); font-style: italic;">Coming Soon</span>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, #666, #999); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-cloud fa-2x"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">OmniCloud Pro</h3>
+                <p style="color: var(--text-gray);">Enterprise cloud solution with enhanced security and scalability.</p>
+                <span style="color: var(--electric-blue); font-style: italic;">Coming Soon</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

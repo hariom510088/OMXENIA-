@@ -1,0 +1,119 @@
+{% extends 'OMNEXIA_APP/base.html' %}
+
+{% block title %}Contact Us - OMNEXIA{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="section-title">Contact Us</h1>
+        
+        {% if not user.is_authenticated %}
+        <div class="card" style="text-align: center; margin-bottom: 2rem; background: rgba(255, 0, 0, 0.1); border-color: #ff4444;">
+            <h3 style="color: #ff4444; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle"></i> Login Required</h3>
+            <p style="color: var(--text-gray);">
+                Please <a href="/admin/login/" style="color: var(--electric-blue);">login</a> to access the contact form.
+                If you don't have an account, please contact us at <strong>sabkabaap060@gmail.com</strong>
+            </p>
+        </div>
+        {% endif %}
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+            <!-- Contact Form -->
+            <div>
+                <h2 style="color: var(--electric-blue); margin-bottom: 1.5rem;">Get In Touch</h2>
+                
+                {% if user.is_authenticated %}
+                <form method="post" class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    {% csrf_token %}
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light);">Name *</label>
+                            {{ form.name }}
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light);">Email *</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light);">Company</label>
+                        {{ form.company }}
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light);">Subject *</label>
+                        {{ form.subject }}
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-light);">Message *</label>
+                        {{ form.message }}
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="align-self: flex-start;">Send Message</button>
+                </form>
+                {% endif %}
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="card">
+                <h3 style="color: var(--electric-blue); margin-bottom: 1.5rem;">Contact Information</h3>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-light); margin-bottom: 0.5rem;"><i class="fas fa-envelope"></i> Email</h4>
+                    <p style="color: var(--text-gray);">sabkabaap060@gmail.com</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-light); margin-bottom: 0.5rem;"><i class="fas fa-phone"></i> Phone</h4>
+                    <p style="color: var(--text-gray);">+1 (555) 123-4567</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: var(--text-light); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Address</h4>
+                    <p style="color: var(--text-gray);">
+                        123 Innovation Drive<br>
+                        Tech City, TC 12345<br>
+                        United States
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--text-light); margin-bottom: 1rem;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--dark-bg);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--electric-blue);
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+</style>
+{% endblock %}

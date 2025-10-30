@@ -1,0 +1,23 @@
+{% extends 'OMNEXIA_APP/base.html' %}
+
+{% block title %}Message Sent - OMNEXIA{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="card" style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(45deg, var(--electric-blue), var(--neon-purple)); margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-check fa-2x"></i>
+            </div>
+            <h1 style="margin-bottom: 1rem;">Message Sent Successfully!</h1>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;">
+                Thank you for contacting OMNEXIA. We have received your message and will get back to you within 24 hours.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="{% url 'index' %}" class="cta-button">Return Home</a>
+                <a href="{% url 'contact' %}" class="cta-button" style="background: transparent; border: 2px solid var(--electric-blue); color: var(--electric-blue);">Send Another Message</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

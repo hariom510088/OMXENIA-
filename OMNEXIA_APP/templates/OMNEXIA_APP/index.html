@@ -1,0 +1,81 @@
+{% extends 'OMNEXIA_APP/base.html' %}
+
+{% block title %}Innovate. Connect. Evolve.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="section" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; display: flex; align-items: center; position: relative;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1 style="font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(45deg, #00f5ff, #b967ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Building the Future of Technology
+            </h1>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-gray);">
+                With Innovation and Intelligence
+            </p>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                At Omnexia Global Technology, we create intelligent digital ecosystems that connect people, data, and businesses.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="{% url 'solutions' %}" class="cta-button">Explore Our Solutions</a>
+                <a href="{% url 'contact' %}" class="cta-button" style="background: transparent; border: 2px solid var(--electric-blue); color: var(--electric-blue);">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid-3">
+            {% for service in services %}
+            <div class="card">
+                <i class="{{ service.icon }} fa-2x" style="color: var(--electric-blue); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">{{ service.title }}</h3>
+                <p style="color: var(--text-gray);">{{ service.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="section" style="background: var(--dark-card);">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="grid-4">
+            {% for product in products %}
+            <div class="card">
+                <h3 style="margin-bottom: 1rem;">{{ product.name }}</h3>
+                <p style="color: var(--text-gray);">{{ product.description }}</p>
+                <a href="{{ product.link }}" style="color: var(--electric-blue); text-decoration: none; margin-top: 1rem; display: inline-block;">Learn More →</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Our Team</h2>
+        <div class="grid-3">
+            {% for member in team_members %}
+            <div class="card" style="text-align: center;">
+                <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(45deg, var(--electric-blue), var(--neon-purple)); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-user fa-2x"></i>
+                </div>
+                <h3>{{ member.name }}</h3>
+                <p style="color: var(--electric-blue); margin-bottom: 1rem;">{{ member.position }}</p>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">{{ member.bio }}</p>
+                <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                    {% if member.linkedin %}<a href="{{ member.linkedin }}"><i class="fab fa-linkedin"></i></a>{% endif %}
+                    {% if member.github %}<a href="{{ member.github }}"><i class="fab fa-github"></i></a>{% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
